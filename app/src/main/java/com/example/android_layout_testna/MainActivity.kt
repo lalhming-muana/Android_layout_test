@@ -21,16 +21,21 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.Icon
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Phone
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.rounded.ShoppingCart
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.android_layout_testna.ui.theme.Android_layout_testnaTheme
 
 class MainActivity : ComponentActivity() {
@@ -57,20 +62,7 @@ fun Greeting(modifier: Modifier = Modifier) {
         modifier = Modifier.fillMaxSize()
                            ){
     TopHalf()
-
-    Icon(
-        imageVector = Icons.Default.ShoppingCart, // Use the correct Compose icon import
-        contentDescription = "Shopping Cart Icon",
-        modifier = Modifier.size(20.dp), // Set the icon size
-        tint = Color.Red // Customize the icon color
-
-        )
-
-
-    Text(
-        text ="Inside the Greeting line 2",
-        modifier = modifier
-    )
+    BottomHalf()
 
 
     }
@@ -79,7 +71,10 @@ fun Greeting(modifier: Modifier = Modifier) {
 
 @Composable
     fun TopHalf(modifier: Modifier = Modifier){
-    Column(){
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
         val imageFile = painterResource(R.drawable.android_logo)
         Image(
             painter = imageFile,
@@ -89,13 +84,84 @@ fun Greeting(modifier: Modifier = Modifier) {
 
         )
         Text(
-            text ="inside the first line of Top Half",
-            modifier = modifier
+            text ="Lalhmingmuana",
+            modifier = modifier.padding(10.dp),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold
+
         )
         Text(
-            text ="inside the second line of Top Half",
+            text ="Android developer",
             modifier = modifier
         )
+
+    }
+}
+
+
+@Composable
+fun BottomHalf(modifier: Modifier = Modifier){
+    Column(Modifier.padding(start=10.dp,
+                            end=10.dp,
+                            top=90.dp,
+                            bottom=10.dp)){
+        Row(Modifier.padding(10.dp)) {
+            Icon(
+                imageVector = Icons.Default.Share, // Use the correct Compose icon import
+                contentDescription = "Share Icon",
+                modifier = Modifier.size(20.dp), // Set the icon size
+                tint = Color.Blue // Customize the icon color
+
+            )
+
+
+            Text(
+                text = "@lalhming_muana",
+                modifier = modifier.padding(start =10.dp,
+                    end =10.dp,
+                    top=0.dp,
+                    bottom = 10.dp)
+            )
+        }
+        Row(Modifier.padding(10.dp)) {
+            Icon(
+                imageVector = Icons.Default.Email, // Use the correct Compose icon import
+                contentDescription = "Email Icon",
+                modifier = Modifier.size(20.dp), // Set the icon size
+                tint = Color.Blue // Customize the icon color
+
+            )
+
+
+            Text(
+                text = "edd_vai@yahoo.co.in",
+                modifier = modifier.padding(start =10.dp,
+                    end =10.dp,
+                    top=0.dp,
+                    bottom = 10.dp)
+            )
+        }
+
+        Row(Modifier.padding(10.dp)) {
+            Icon(
+                imageVector = Icons.Default.Phone, // Use the correct Compose icon import
+                contentDescription = "Phone Icon",
+                modifier = Modifier.size(20.dp), // Set the icon size
+                tint = Color.Blue // Customize the icon color
+
+            )
+
+
+            Text(
+                text = "(+90)9089528085",
+                modifier = modifier.padding(start =10.dp,
+                    end =10.dp,
+                    top=0.dp,
+                    bottom = 10.dp)
+            )
+        }
+
+
 
     }
 }
