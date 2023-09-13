@@ -57,14 +57,18 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
-    Column(verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
-                           ){
-    TopHalf()
-    BottomHalf()
+    Box(Modifier.background(Color(0xFFEEF5D6))) {
+
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            TopHalf()
+            BottomHalf()
 
 
+        }
     }
 }
 
@@ -79,7 +83,8 @@ fun Greeting(modifier: Modifier = Modifier) {
         Image(
             painter = imageFile,
             contentDescription = null,
-            modifier =Modifier.size(100.dp)
+            modifier = Modifier
+                .size(100.dp)
                 .background(Color(0XFF111405))
 
         )
@@ -103,14 +108,15 @@ fun Greeting(modifier: Modifier = Modifier) {
 fun BottomHalf(modifier: Modifier = Modifier){
     Column(Modifier.padding(start=10.dp,
                             end=10.dp,
-                            top=90.dp,
+                            top=170.dp,
                             bottom=10.dp)){
         Row(Modifier.padding(10.dp)) {
             Icon(
                 imageVector = Icons.Default.Share, // Use the correct Compose icon import
                 contentDescription = "Share Icon",
                 modifier = Modifier.size(20.dp), // Set the icon size
-                tint = Color.Blue // Customize the icon color
+                tint = Color(0xFFa1344e)
+             // Customize the icon color
 
             )
 
@@ -128,7 +134,7 @@ fun BottomHalf(modifier: Modifier = Modifier){
                 imageVector = Icons.Default.Email, // Use the correct Compose icon import
                 contentDescription = "Email Icon",
                 modifier = Modifier.size(20.dp), // Set the icon size
-                tint = Color.Blue // Customize the icon color
+                tint = Color.Black // Customize the icon color
 
             )
 
@@ -147,7 +153,7 @@ fun BottomHalf(modifier: Modifier = Modifier){
                 imageVector = Icons.Default.Phone, // Use the correct Compose icon import
                 contentDescription = "Phone Icon",
                 modifier = Modifier.size(20.dp), // Set the icon size
-                tint = Color.Blue // Customize the icon color
+                tint = Color.Black // Customize the icon color
 
             )
 
